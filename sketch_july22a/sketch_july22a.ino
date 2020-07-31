@@ -1,16 +1,18 @@
 #include <Servo.h>
 
+//Soap
 #define trigPin1 2
 #define echoPin1 3
+//Water
 #define trigPin2 11
 #define echoPin2 10
 
-// Water
+// Soap
 long duration1;
 int distance1;
 int threshold1 = 10;
 
-// Soap
+// Water
 long duration2;
 int distance2;
 int threshold2 = 10;
@@ -50,6 +52,7 @@ void loop() {
   Serial.print("Jarak2:  ");
   Serial.println(distance2);
   
+//soap
 if (distance1 < threshold1) {
   countServo.write(180);
   delay(500);
@@ -57,6 +60,8 @@ if (distance1 < threshold1) {
   else {
   countServo.write(0);
     }
+    
+//water
 if (distance2 < threshold2) {
    digitalWrite(5, LOW);
    delay(1000);
