@@ -1,7 +1,7 @@
 #include <Servo.h>
 
 //Soap
-#define trigPin1 2
+#define trigPin1 5
 #define echoPin1 3
 //Water
 #define trigPin2 11
@@ -25,7 +25,7 @@ void setup() {
     pinMode(echoPin1,INPUT);
     pinMode(trigPin2,OUTPUT);
     pinMode(echoPin2,INPUT);
-    pinMode(5,OUTPUT);
+    pinMode(7,OUTPUT);
     countServo.attach(9);
     Serial.begin(9600);
 }
@@ -63,10 +63,10 @@ if (distance1 < threshold1) {
     
 //water
 if (distance2 < threshold2) {
-   digitalWrite(5, LOW);
+   digitalWrite(7, LOW);
    delay(1000);
    }
   else {
-   digitalWrite(5, HIGH);
+   digitalWrite(7, HIGH);
     }   
  }
