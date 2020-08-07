@@ -3,6 +3,7 @@
 //Soap
 #define trigPin1 5
 #define echoPin1 3
+
 //Water
 #define trigPin2 11
 #define echoPin2 10
@@ -20,14 +21,14 @@ int threshold2 = 10;
 Servo countServo;
 
 void setup() {
-// put your setup code here, to run once:
-    pinMode(trigPin1,OUTPUT);
-    pinMode(echoPin1,INPUT);
-    pinMode(trigPin2,OUTPUT);
-    pinMode(echoPin2,INPUT);
-    pinMode(7,OUTPUT);
-    countServo.attach(9);
-    Serial.begin(9600);
+  // put your setup code here, to run once:
+  pinMode(trigPin1, OUTPUT);
+  pinMode(echoPin1, INPUT);
+  pinMode(trigPin2, OUTPUT);
+  pinMode(echoPin2, INPUT);
+  pinMode(7, OUTPUT);
+  countServo.attach(9);
+  Serial.begin(9600);
 }
 
 void loop() {
@@ -51,22 +52,21 @@ void loop() {
   Serial.println(distance1);
   Serial.print("Jarak2:  ");
   Serial.println(distance2);
-  
-//soap
-if (distance1 < threshold1) {
-  countServo.write(180);
-  delay(500);
-    }
-  else {
-  countServo.write(0);
-    }
-    
-//water
-if (distance2 < threshold2) {
-   digitalWrite(7, LOW);
-   delay(1000);
-   }
-  else {
-   digitalWrite(7, HIGH);
-    }   
- }
+
+  //soap
+  if (distance1 < threshold1) {
+    countServo.write(180);
+  }
+  if (distance1 > threshold1) {
+    countServo.write(0);
+  }
+
+  //water
+  if (distance2 < threshold2) {
+    digitalWrite(7, LOW);
+    delay(2000);
+  }
+  if(distance2 > threshold2) {
+    digitalWrite(7, HIGH);
+  }
+}
