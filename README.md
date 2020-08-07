@@ -9,3 +9,6 @@ This project have two main modul
 
 New Sketch!!!
 ![alt text](https://i.imgur.com/pT923dA.png)
+
+Project Video :
+[![Watch the video](https://img.youtube.com/vi/skwQ7AUATfo/0.jpg)](https://youtu.be/skwQ7AUATfo)
