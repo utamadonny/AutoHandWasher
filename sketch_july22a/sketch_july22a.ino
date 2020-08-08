@@ -63,10 +63,15 @@ void loop() {
 
   //water
   if (distance2 < threshold2) {
+    countServo.write(0);
     digitalWrite(7, LOW);
-    delay(2000);
+    delay(2800);
   }
-  if(distance2 > threshold2) {
+  if (distance2 > threshold2) {
+    countServo.write(0);
+    if (distance1 < threshold1) {
+      countServo.write(180);
+    }
     digitalWrite(7, HIGH);
   }
 }
