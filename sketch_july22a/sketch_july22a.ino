@@ -1,12 +1,12 @@
 #include <Servo.h>
 
 //Soap
-#define trigPin1 5
-#define echoPin1 3
+#define trigPin1 11
+#define echoPin1 10
 
 //Water
-#define trigPin2 11
-#define echoPin2 10
+#define trigPin2 5
+#define echoPin2 3
 
 // Soap
 long duration1;
