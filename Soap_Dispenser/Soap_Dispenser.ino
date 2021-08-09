@@ -1,16 +1,17 @@
-#define trigPin 2
-#define echoPin 3
+#include <Servo.h>
+#define trigPin 7
+#define echoPin 8
 
 long duration;
 int distance;
 int threshold = 10;
-
+Servo countServo;
 
 void setup() {
 // put your setup code here, to run once:
     pinMode(trigPin,OUTPUT);
     pinMode(echoPin,INPUT);
-    pinMode(7,OUTPUT);
+    countServo.attach(6); 
     Serial.begin(9600);
 }
 
@@ -23,10 +24,11 @@ void loop() {
   duration = pulseIn(echoPin, HIGH);
   distance = (duration / 2) * 0.0343;
   Serial.println(distance);
+  countServo.write(0);
   if (distance < threshold) {
-    digitalWrite(7, HIGH);
-    delay(100);
-    digitalWrite(7, LOW);
+  countServo.write(180);
+  delay(2000);
+  countServo.write(0);
+  countServo.write(180);
   }
-  delay(1000);
 }
